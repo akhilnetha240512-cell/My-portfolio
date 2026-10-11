@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080713">
+<meta name="description" content="Akhil Netha — student exploring AI, app development, and cybersecurity.">
+<title>Akhil Netha | 3D Portfolio</title>
+
+<style>
+:root {
+  --bg: #080713;
+  --panel: rgba(20, 17, 43, .78);
+  --purple: #a855f7;
+  --blue: #38bdf8;
+  --text: #f7f4ff;
+  --muted: #b9b4d0;
+  --border: rgba(168, 85, 247, .3);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 15% 10%, #21103c 0, transparent 40%),
+    radial-gradient(ellipse at 85% 40%, #091c3b 0, transparent 38%),
+    var(--bg);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+a { color: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+#stars {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; z-index: -1;
+}
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 12px;
+  padding: 14px 5%;
+  background: rgba(8,7,19,.85);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+}
+.logo {
+  font-size: 1.08rem; font-weight: 850;
+  text-decoration: none;
+}
+.logo span { color: var(--blue); }
+.navlinks {
+  display: flex; gap: 15px; align-items: center;
+}
+.navlinks a {
+  text-decoration: none; font-size: .86rem;
+  color: var(--muted);
+}
+.navlinks a:hover { color: var(--blue); }
+.tools { display: flex; gap: 7px; }
+.smallbtn {
+  border: 1px solid var(--border);
+  background: #17112b; color: var(--text);
+  border-radius: 10px; padding: 8px 10px;
+  cursor: pointer; font-size: .8rem;
+}
+.hero {
+  min-height: 88vh;
+  padding: 65px 7% 55px;
+  display: grid; grid-template-columns: 1.1fr .9fr;
+  align-items: center; gap: 28px;
+  max-width: 1250px; margin: auto;
+}
+.eyebrow {
+  color: var(--blue); text-transform: uppercase;
+  letter-spacing: 3px; font-size: .76rem;
+  font-weight: 750;
+}
+h1 {
+  font-size: clamp(2.8rem, 7vw, 5.8rem);
+  line-height: 1.02; letter-spacing: -3px;
+  margin: 18px 0;
+}
+.gradient {
+  background: linear-gradient(100deg, #c084fc, #60a5fa, #67e8f9);
+  -webkit-background-clip: text;
+  background-clip: text; color: transparent;
+}
+.hero p, .section-intro {
+  color: var(--muted); line-height: 1.8;
+  max-width: 590px;
+}
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+.btn {
+  display: inline-flex; justify-content: center;
+  align-items: center; gap: 8px;
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 12px 17px; text-decoration: none;
+  cursor: pointer; color: var(--text);
+  background: rgba(168,85,247,.12);
+  transition: transform .2s, box-shadow .2s;
+}
+.btn.primary {
+  color: #fff; border: 0;
+  background: linear-gradient(110deg, #9333ea, #2563eb);
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 0 25px #9333ea45; }
+.note { font-size: .82rem; color: var(--muted); margin-top: 18px; }
+
+.universe {
+  min-height: 390px; position: relative;
+  display: grid; place-items: center;
+  perspective: 900px;
+}
+.orbit {
+  position: absolute; width: 290px; height: 290px;
+  border: 1px solid #9b72f655; border-radius: 50%;
+  transform: rotateX(65deg) rotateZ(-20deg);
+  animation: orbit 18s linear infinite;
+}
+.orbit.two {
+  width: 350px; height: 350px;
+  border-color: #38bdf833;
+  transform: rotateX(68deg) rotateZ(35deg);
+  animation-duration: 25s;
+}
+.core {
+  width: 155px; height: 155px; border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 25%, #e9d5ff, transparent 18%),
+    radial-gradient(circle at 35% 30%, #a855f7, #5222a2 48%, #11102c 76%);
+  box-shadow: 0 0 35px #a855f799, 0 0 100px #7c3aed44,
+    inset -18px -18px 30px #070615;
+  animation: float 5s ease-in-out infinite;
+}
+.planet {
+  position: absolute; z-index: 2;
+  display: grid; place-items: center;
+  border-radius: 50%; cursor: pointer;
+  color: white; font-size: 1.25rem;
+  border: 1px solid #ffffff55;
+  box-shadow: 0 0 24px #7c3aed66;
+  transition: transform .2s;
+}
+.planet:hover { transform: scale(1.13); }
+.planet.ai {
+  width: 65px; height: 65px; top: 11%; right: 12%;
+  background: radial-gradient(circle at 30% 25%, #f5d0fe, #9333ea 48%, #281044);
+}
+.planet.code {
+  width: 57px; height: 57px; bottom: 16%; left: 9%;
+  background: radial-gradient(circle at 30% 25%, #bae6fd, #0284c7 55%, #082f49);
+}
+.planet.cyber {
+  width: 48px; height: 48px; bottom: 12%; right: 16%;
+  background: radial-gradient(circle at 30% 25%, #bbf7d0, #059669 60%, #052e26);
+}
+.planet-label {
+  position: absolute; bottom: 1%;
+  color: var(--muted); font-size: .8rem;
+}
+section {
+  padding: 75px 7%; max-width: 1150px; margin: auto;
+}
+.section-title {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  margin: 0 0 12px; letter-spacing: -1px;
+}
+.section-intro { margin: 0 0 30px; }
+.grid {
+  display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 18px;
+}
+.card {
+  padding: 24px; border: 1px solid var(--border);
+  background: linear-gradient(140deg, var(--panel), rgba(13,14,32,.7));
+  border-radius: 20px; box-shadow: 0 12px 45px #00000020;
+  transition: transform .25s, border-color .25s;
+}
+.card:hover { transform: translateY(-4px); border-color: #a855f799; }
+.card h3 { margin: 10px 0; font-size: 1.2rem; }
+.card p { color: var(--muted); line-height: 1.75; }
+.symbol { font-size: 1.7rem; }
+.tag {
+  display: inline-block; font-size: .76rem;
+  color: #d8b4fe; background: #a855f71b;
+  border: 1px solid #a855f744;
+  border-radius: 20px; padding: 6px 10px; margin: 4px 4px 0 0;
+}
+.skill-card { cursor: pointer; text-align: left; color: var(--text); width: 100%; }
+.skill-card:focus-visible, a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--blue); outline-offset: 4px;
+}
+.status { font-size: .8rem; color: #67e8f9; }
+.project-link { display: inline-block; color: #93c5fd; margin-top: 10px; }
+.timeline { border-left: 2px solid #8b5cf6; padding-left: 22px; }
+.timeline .card { margin-bottom: 16px; }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+.contact-link {
+  display: block; text-decoration: none;
+  padding: 13px 0; color: #c4b5fd;
+  overflow-wrap: anywhere;
+}
+footer {
+  border-top: 1px solid var(--border); text-align: center;
+  padding: 30px 16px; color: var(--muted); font-size: .86rem;
+}
+#intro {
+  position: fixed; inset: 0; z-index: 50;
+  background: #080713;
+  display: grid; place-items: center; text-align: center;
+  padding: 25px; transition: opacity .5s, visibility .5s;
+}
+#intro.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.intro-content { max-width: 420px; }
+.loader {
+  width: 58px; height: 58px; margin: 0 auto 25px;
+  border: 3px solid #ffffff15; border-top-color: #c084fc;
+  border-right-color: #38bdf8; border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+#intro h2 { font-size: 2rem; margin: 0 0 10px; }
+#intro p { color: var(--muted); }
+#toast {
+  position: fixed; bottom: 20px; left: 50%;
+  transform: translateX(-50%); z-index: 60;
+  background: #24163c; border: 1px solid var(--border);
+  padding: 12px 17px; border-radius: 12px;
+  max-width: 90%; text-align: center;
+}
+#toast:empty { display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes orbit { to { rotate: 360deg; } }
+@keyframes float { 50% { translate: 0 -13px; } }
+@media (max-width: 760px) {
+  .nav { flex-wrap: wrap; padding: 12px 4%; }
+  .navlinks { order: 3; width: 100%; overflow-x: auto; padding: 6px 0; }
+  .navlinks a { white-space: nowrap; }
+  .hero { grid-template-columns: 1fr; padding: 55px 6% 25px; min-height: auto; }
+  .universe { min-height: 330px; }
+  .orbit { width: 240px; height: 240px; }
+  .orbit.two { width: 285px; height: 285px; }
+  .core { width: 125px; height: 125px; }
+  section { padding: 55px 6%; }
+  .grid, .contact-grid { grid-template-columns: 1fr; }
+  h1 { letter-spacing: -1.8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+body.reduce-motion *, body.reduce-motion *::before, body.reduce-motion *::after {
+  animation: none !important; scroll-behavior: auto !important;
+  transition: none !important;
+}
+</style>
+</head>
+
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<div id="intro" role="dialog" aria-label="Portfolio introduction">
+  <div class="intro-content">
+    <div class="loader" aria-hidden="true"></div>
+    <p class="eyebrow">Entering the digital universe</p>
+    <h2 class="gradient">AKHIL NETHA</h2>
+    <p>Ideas become projects. Curiosity becomes knowledge.</p>
+    <button class="btn primary" id="skipIntro">Skip intro →</button>
+  </div>
+</div>
+
+<header class="nav">
+  <a class="logo" href="#home">AKHIL<span>.</span></a>
+  <nav class="navlinks" aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="tools">
+    <button class="smallbtn" id="soundToggle" aria-pressed="false">🔇 Sound</button>
+    <button class="smallbtn" id="motionToggle" aria-pressed="false">✨ Motion</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div>
+      <div class="eyebrow">Student · Builder · Explorer</div>
+      <h1>Hi, I'm<br><span class="gradient">Akhil Netha.</span></h1>
+      <p>
+        A student learning AI, HTML, and app development,
+        exploring cybersecurity, and building useful digital
+        projects for students.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">Explore my projects ↗</a>
+        <a class="btn" href="#about">Discover my journey</a>
+      </div>
+      <p class="note">Curious mind. Creative ideas. Continuous learning.</p>
+    </div>
+
+    <div class="universe" aria-label="Interactive digital planet illustration">
+      <div class="orbit"></div>
+      <div class="orbit two"></div>
+      <div class="core"></div>
+      <button class="planet ai" data-target="skills" aria-label="Explore AI skills">AI</button>
+      <button class="planet code" data-target="projects" aria-label="Explore development projects">&lt;/&gt;</button>
+      <button class="planet cyber" data-target="skills" aria-label="Explore cybersecurity learning">⌘</button>
+      <div class="planet-label">Tap a planet to explore</div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="eyebrow">01 / About me</div>
+    <h2 class="section-title">Learning today. <span class="gradient">Building tomorrow.</span></h2>
+    <p class="section-intro">
+      I'm a student who enjoys exploring technology and turning
+      ideas into useful projects. I'm developing my skills step
+      by step and learning through practice.
+    </p>
+    <div class="grid">
+      <article class="card">
+        <div class="symbol">🧠</div>
+        <h3>My interests</h3>
+        <p>Artificial intelligence, websites, mobile apps, digital creativity, and cybersecurity fundamentals.</p>
+      </article>
+      <article class="card">
+        <div class="symbol">🚀</div>
+        <h3>My approach</h3>
+        <p>Start with an idea, learn what is needed, build a working version, and keep improving it.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="eyebrow">02 / Learning universe</div>
+    <h2 class="section-title">Skills in progress</h2>
+    <p class="section-intro">Tap a planet or skill card to explore what I'm learning.</p>
+    <div class="grid">
+      <button class="card skill-card" data-message="AI: learning the fundamentals and exploring how AI can help with studying and problem solving.">
+        <div class="symbol">🤖</div>
+        <h3>Artificial Intelligence</h3>
+        <p>Exploring AI tools and student-focused ideas.</p>
+        <span class="status">● Learning</span>
+      </button>
+      <button class="card skill-card" data-message="HTML and web development: practising page structure, CSS styling, responsive layouts, and JavaScript basics.">
+        <div class="symbol">💻</div>
+        <h3>Web Development</h3>
+        <p>HTML, CSS, responsive design, and JavaScript practice.</p>
+        <span class="status">● Practising</span>
+      </button>
+      <button class="card skill-card" data-message="App Development: exploring how to plan and create useful applications for everyday needs.">
+        <div class="symbol">📱</div>
+        <h3>App Development</h3>
+        <p>Learning how applications are planned and built.</p>
+        <span class="status">● Learning</span>
+      </button>
+      <button class="card skill-card" data-message="Cybersecurity: interested in online safety, account security, networking concepts, and ethical learning.">
+        <div class="symbol">🛡️</div>
+        <h3>Cybersecurity</h3>
+        <p>Exploring digital safety and security fundamentals.</p>
+        <span class="status">● Exploring</span>
+      </button>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="eyebrow">03 / Project constellation</div>
+    <h2 class="section-title">Things I'm building</h2>
+    <p class="section-intro">Student-focused ideas with room to grow.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="symbol">📚</div>
+        <span class="tag">Study platform</span>
+        <h3>Study Companion</h3>
+        <p>
+          A student learning website for study materials and
+          study assistance, designed to make learning resources
+          easier to access.
+        </p>
+        <span class="tag">Web Development</span>
+        <span class="tag">Education</span>
+        <p><strong>Includes:</strong> Study Solver AI, a feature for doubt solving and study assistance.</p>
+        <a class="project-link" href="https://akhilnetha240512-cell.github.io/study-companion-app/" target="_blank" rel="noopener noreferrer">Visit Study Companion ↗</a>
+      </article>
+      <article class="card">
+        <div class="symbol">🌌</div>
+        <span class="tag">Portfolio</span>
+        <h3>My 3D Portfolio</h3>
+        <p>
+          This interactive portfolio showcases my interests,
+          learning journey, and projects through a futuristic
+          space-inspired design.
+        </p>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+        <p class="status">● Current project</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="eyebrow">04 / My journey</div>
+    <h2 class="section-title">Education & experience</h2>
+    <div class="timeline">
+      <article class="card">
+        <span class="tag">Education</span>
+        <h3>Class 10 student</h3>
+        <p>Studying at ZPHS Edula Lingampeta, Telangana.</p>
+        <p>Currently strengthening school subjects while exploring technology and programming.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Student projects</span>
+        <h3>Learning by creating</h3>
+        <p>Building and improving Study Companion and experimenting with web design and application ideas.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="eyebrow">05 / Connect</div>
+    <h2 class="section-title">Let's connect.</h2>
+    <p class="section-intro">
+      Interested in my student projects or learning journey?
+      Explore my links below.
+    </p>
+    <div class="contact-grid">
+      <article class="card">
+        <div class="symbol">✉️</div>
+        <h3>Email</h3>
+        <p>For project-related questions and collaboration.</p>
+        <a class="contact-link" href="mailto:akhilnetha240512@gmail.com">akhilnetha240512@gmail.com ↗</a>
+      </article>
+      <article class="card">
+        <div class="symbol">🔗</div>
+        <h3>Social profiles</h3>
+        <a class="contact-link" href="https://www.instagram.com/itzzz_akhil_netha/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        <a class="contact-link" href="https://www.youtube.com/@vanga05" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+        <a class="contact-link" href="https://www.snapchat.com/add/akhil052412" target="_blank" rel="noopener noreferrer">Snapchat ↗</a>
+      </article>
+    </div>
+    <p class="note">Location: Telangana, India</p>
+  </section>
+</main>
+
+<footer>
+  <p>Designed with curiosity by <strong>Akhil Netha</strong> 💜</p>
+  <p>Learning, building, and improving — one project at a time.</p>
+  <p>© <span id="year"></span> Akhil Netha</p>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  const $ = (selector) => document.querySelector(selector);
+  const toast = $("#toast");
+  let toastTimer;
+  function notify(message) {
+    toast.textContent = message;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.textContent = "", 3800);
+  }
+
+  // Intro screen
+  const intro = $("#intro");
+  function closeIntro() {
+    intro.classList.add("hidden");
+    try { sessionStorage.setItem("portfolioIntroSeen", "yes"); } catch (_) {}
+  }
+  $("#skipIntro").addEventListener("click", closeIntro);
+  try {
+    if (sessionStorage.getItem("portfolioIntroSeen") === "yes") closeIntro();
+  } catch (_) {}
+  setTimeout(closeIntro, 4500);
+
+  // Clickable planets
+  document.querySelectorAll("[data-target]").forEach(button => {
+    button.addEventListener("click", () => {
+      document.getElementById(button.dataset.target)?.scrollIntoView({behavior:"smooth"});
+    });
+  });
+
+  // Interactive skill cards
+  document.querySelectorAll(".skill-card").forEach(card => {
+    card.addEventListener("click", () => notify(card.dataset.message));
+  });
+
+  // Reduced motion toggle
+  const motionButton = $("#motionToggle");
+  motionButton.addEventListener("click", () => {
+    const enabled = document.body.classList.toggle("reduce-motion");
+    motionButton.textContent = enabled ? "⏸ Motion off" : "✨ Motion";
+    motionButton.setAttribute("aria-pressed", String(enabled));
+    notify(enabled ? "Animations reduced." : "Animations enabled.");
+  });
+
+  // Optional sound: only starts after the visitor presses the button.
+  let audioContext = null;
+  let soundTimer = null;
+  let soundOn = false;
+  function stopSound() {
+    clearInterval(soundTimer);
+    soundTimer = null;
+    if (audioContext) {
+      audioContext.close().catch(() => {});
+      audioContext = null;
+    }
+    soundOn = false;
+    $("#soundToggle").textContent = "🔇 Sound";
+    $("#soundToggle").setAttribute("aria-pressed", "false");
+  }
+  $("#soundToggle").addEventListener("click", async () => {
+    if (soundOn) {
+      stopSound();
+      notify("Sound off.");
+      return;
+    }
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) throw new Error("Audio unavailable");
+      audioContext = new AudioCtx();
+      await audioContext.resume();
+      soundOn = true;
+      $("#soundToggle").textContent = "🔊 Sound on";
+      $("#soundToggle").setAttribute("aria-pressed", "true");
+      // Very quiet, short tones; no continuous loud background audio.
+      soundTimer = setInterval(() => {
+        if (!audioContext || audioContext.state !== "running") return;
+        const osc = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        osc.type = "sine";
+        osc.frequency.value = 220 + Math.random() * 180;
+        gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.012, audioContext.currentTime + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 0.5);
+        osc.connect(gain);
+        gain.connect(audioContext.destination);
+        osc.start();
+        osc.stop(audioContext.currentTime + 0.55);
+      }, 1800);
+      notify("Optional ambient tones enabled. Tap again to turn them off.");
+    } catch (_) {
+      stopSound();
+      notify("Sound is unavailable in this browser.");
+    }
+  });
+
+  // Lightweight starfield background
+  const canvas = $("#stars");
+  const ctx = canvas.getContext("2d");
+  let stars = [];
+  let width = 0, height = 0, dpr = 1;
+  function resizeCanvas() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const count = Math.min(115, Math.floor(width * height / 8500));
+    stars = Array.from({length: count}, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() * 1.4 + .2,
+      a: Math.random() * .65 + .2,
+      speed: Math.random() * .15 + .025
+    }));
+  }
+  function drawStars() {
+    ctx.clearRect(0, 0, width, height);
+    for (const star of stars) {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(205,190,255,${star.a})`;
+      ctx.fill();
+      if (!document.body.classList.contains("reduce-motion")) {
+        star.y += star.speed;
+        if (star.y > height) { star.y = 0; star.x = Math.random() * width; }
+      }
+    }
+    if (!document.body.classList.contains("reduce-motion")) {
+      requestAnimationFrame(drawStars);
+    }
+  }
+  resizeCanvas();
+  drawStars();
+  window.addEventListener("resize", () => {
+    resizeCanvas();
+    if (!document.body.classList.contains("reduce-motion")) drawStars();
+  });
+
+  $("#year").textContent = new Date().getFullYear();
+  window.addEventListener("pagehide", stopSound);
+})();
+</script>
+</body>
+</html>
