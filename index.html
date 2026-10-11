@@ -3,93 +3,153 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My Portfolio | Private Vault</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d1b">
+<title>Akhil | Portfolio</title>
 <style>
-:root{color-scheme:dark;--bg:#080d1b;--panel:#121b30;--line:#293650;--text:#edf3ff;--muted:#9eacc6;--accent:#8b9dff}
+:root{color-scheme:dark;--bg:#080d1b;--panel:#121b30;--line:#293650;--text:#edf3ff;--muted:#a7b5ce;--accent:#9aa9ff}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:16px system-ui,sans-serif}
-main{width:min(760px,92%);margin:45px auto}
-header{display:flex;justify-content:space-between;align-items:center;gap:12px}
-h1{font-size:clamp(25px,6vw,38px);margin:8px 0}
-p{color:var(--muted);line-height:1.6}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:20px}
-button,input{font:inherit;border-radius:10px;padding:12px;width:100%;margin-top:10px}
-button{background:var(--accent);color:#0a1023;border:0;font-weight:700;cursor:pointer}
-button.secondary{background:#202c46;color:var(--text);border:1px solid var(--line)}
-input{background:#080f20;color:white;border:1px solid var(--line)}
-a{color:#b6c4ff;overflow-wrap:anywhere}
+body{margin:0;background:radial-gradient(ellipse at top,#19254a 0%,var(--bg) 55%);color:var(--text);font:16px system-ui,sans-serif}
+main{width:min(1000px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:15px 4%;background:#080d1beF;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+nav a{color:var(--text);text-decoration:none;margin-left:15px;font-size:14px}
+.brand{font-weight:800;letter-spacing:2px;color:#b7c3ff}
+section{scroll-margin-top:80px;padding:48px 0}
+.hero{min-height:65vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.eyebrow{color:#aebcff;text-transform:uppercase;letter-spacing:3px;font-size:12px}
+h1{font-size:clamp(40px,9vw,76px);line-height:1.05;margin:12px 0}
+h2{font-size:clamp(25px,5vw,36px);margin:0 0 15px}
+h3{margin:8px 0}
+p{color:var(--muted);line-height:1.75}
+.hero p{max-width:620px;font-size:18px}
+.gradient{background:linear-gradient(90deg,#a8b7ff,#d4aaff);color:transparent;background-clip:text}
+.button{display:inline-block;border:0;border-radius:12px;background:var(--accent);color:#10162d;padding:13px 18px;font-weight:750;text-decoration:none;cursor:pointer}
+.button.secondary{background:#202c46;color:var(--text);border:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card,.panel{background:#111a2ddd;border:1px solid var(--line);border-radius:18px;padding:22px}
+.card p{margin-bottom:0}
+.emoji{font-size:29px}
+.small{font-size:13px;color:var(--muted)}
+footer{padding:25px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
 .hidden{display:none!important}
-.status{color:#c5d1ff;overflow-wrap:anywhere}
-.item{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
-.item:last-child{border-bottom:0}
+input,button{font:inherit}
+input{width:100%;padding:12px;background:#080f20;color:white;border:1px solid var(--line);border-radius:10px;margin:8px 0 14px}
+label{font-size:14px}
+.panel button{width:100%;margin-top:10px}
+.status{white-space:pre-wrap;overflow-wrap:anywhere;color:#c5d1ff}
+.item{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
 .item .info{flex:1;min-width:0;overflow-wrap:anywhere}
-.item small{display:block;color:var(--muted);margin-top:4px}
-.item button{width:auto;min-width:76px;margin:0}
-#message{white-space:pre-wrap}
-footer{margin:30px 0;color:var(--muted);font-size:12px}
+.item small{display:block;color:var(--muted);margin-top:5px}
+.item button{width:auto;min-width:75px;margin:0}
+a{color:#b9c6ff}
+#vault{padding-top:25px}
 </style>
 </head>
 <body>
-<main>
-  <header>
-    <div>
-      <p>MY PERSONAL SPACE</p>
-      <h1>Akhil's Portfolio</h1>
-    </div>
-    <span style="font-size:36px">🌌</span>
-  </header>
+<nav>
+  <a class="brand" href="#top">AKHIL.</a>
+  <div>
+    <a href="#about">About</a>
+    <a href="#interests">Interests</a>
+    <a href="#projects">Projects</a>
+  </div>
+</nav>
 
-  <section id="home" class="panel">
+<main id="top">
+  <section class="hero">
+    <div class="eyebrow">Welcome to my portfolio</div>
+    <h1>Hi, I'm <span class="gradient">Akhil.</span></h1>
+    <p>A student, technology enthusiast, and future builder exploring AI, cybersecurity, science, and creative projects.</p>
+    <a class="button" href="#about">Explore my profile ↓</a>
+  </section>
+
+  <section id="about">
+    <div class="eyebrow">01 / About</div>
     <h2>About Me</h2>
-    <p>Welcome to my personal portfolio.</p>
-    <button id="rocket" type="button">🚀 Open Private Vault</button>
+    <p>I'm interested in learning how technology works and using it to build useful things. This website is my personal space to share my interests, projects, and learning journey.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="emoji">🧠</div>
+        <h3>My interests</h3>
+        <p>Artificial intelligence, cybersecurity, science, coding, and problem-solving.</p>
+      </article>
+      <article class="card">
+        <div class="emoji">🚀</div>
+        <h3>My approach</h3>
+        <p>Learn step by step, experiment, solve problems, and keep improving.</p>
+      </article>
+    </div>
   </section>
 
-  <section id="login" class="panel hidden">
-    <h2>🔐 Sign in</h2>
-    <p>Sign in with your authorised account to continue.</p>
-    <button id="googleLogin" type="button">Continue with Google</button>
-    <hr style="border-color:var(--line);margin:22px 0">
-    <form id="emailForm">
-      <label for="email">Email address</label>
-      <input id="email" type="email" autocomplete="username" required>
-      <label for="password">Password</label>
-      <input id="password" type="password" autocomplete="current-password" required>
-      <button type="submit">Sign in with email</button>
-    </form>
-    <button class="secondary" id="backHome" type="button">Back to portfolio</button>
+  <section id="interests">
+    <div class="eyebrow">02 / Interests</div>
+    <h2>What I Like Exploring</h2>
+    <div class="grid">
+      <article class="card"><div class="emoji">🤖</div><h3>Artificial Intelligence</h3><p>Learning how AI assistants and intelligent applications work.</p></article>
+      <article class="card"><div class="emoji">🛡️</div><h3>Cybersecurity</h3><p>Exploring digital security, privacy, and responsible technology.</p></article>
+      <article class="card"><div class="emoji">🔬</div><h3>Science</h3><p>Understanding ideas through experiments, research, and projects.</p></article>
+    </div>
   </section>
 
-  <section id="codePanel" class="panel hidden">
-    <h2>🔑 Secret Code</h2>
-    <p>Enter your separate vault code.</p>
-    <form id="codeForm">
-      <input id="secretCode" type="password" autocomplete="off"
-        placeholder="Enter secret code" required>
-      <button type="submit">Unlock files</button>
-    </form>
-    <button class="secondary" id="cancelCode" type="button">Cancel</button>
+  <section id="projects">
+    <div class="eyebrow">03 / Projects</div>
+    <h2>Things I'm Building</h2>
+    <div class="grid">
+      <article class="card"><div class="emoji">📚</div><h3>Study Companion</h3><p>A learning website for study materials and exam preparation.</p><a href="https://akhilnetha240512-cell.github.io/study-companion-app/" target="_blank" rel="noopener">Visit website ↗</a></article>
+      <article class="card"><div class="emoji">💬</div><h3>FreeChat</h3><p>A messaging app project exploring authentication and communication features.</p></article>
+      <article class="card"><div class="emoji">✨</div><h3>Akhil AI</h3><p>A personal assistant project exploring voice commands and useful Android actions.</p></article>
+    </div>
   </section>
 
-  <section id="filesPanel" class="panel hidden">
-    <h2>📁 Your Google Drive</h2>
-    <p id="accountLabel"></p>
-    <p id="folderLabel">Your files and folders</p>
-    <button class="secondary hidden" id="parentFolder" type="button">← Parent folder</button>
-    <button class="secondary" id="refresh" type="button">Refresh files</button>
-    <div id="fileList"></div>
-    <p id="message" class="status" role="status"></p>
-    <button class="secondary" id="logout" type="button">Sign out</button>
+  <section id="vault">
+    <div class="eyebrow">04 / Personal access</div>
+    <h2>My Private Space</h2>
+    <p>Your personal Google Drive file browser.</p>
+    <button class="button" id="rocket">🚀 Open Private Vault</button>
+
+    <div id="login" class="panel hidden">
+      <h2>🔐 Sign in</h2>
+      <p>Sign in using your authorised account.</p>
+      <button class="button" id="googleLogin">Continue with Google</button>
+      <p class="small">Or use your existing Firebase email/password account.</p>
+      <form id="emailForm">
+        <label for="email">Email address</label>
+        <input id="email" type="email" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+        <button class="button" type="submit">Sign in with email</button>
+      </form>
+      <button class="button secondary" id="backHome">Back to portfolio</button>
+    </div>
+
+    <div id="codePanel" class="panel hidden">
+      <h2>🔑 Secret Code</h2>
+      <p>Enter your separate code to continue.</p>
+      <form id="codeForm">
+        <input id="secretCode" type="password" autocomplete="off" placeholder="Secret code" required>
+        <button class="button" type="submit">Unlock files</button>
+      </form>
+      <button class="button secondary" id="cancelCode">Cancel</button>
+    </div>
+
+    <div id="filesPanel" class="panel hidden">
+      <h2>📁 My Google Drive</h2>
+      <p id="accountLabel"></p>
+      <p id="folderLabel">Your folders and files</p>
+      <button class="button secondary hidden" id="parentFolder">← Parent folder</button>
+      <button class="button secondary" id="refresh">Refresh files</button>
+      <div id="fileList"></div>
+      <p id="message" class="status" role="status"></p>
+      <button class="button secondary" id="logout">Sign out</button>
+    </div>
   </section>
 
-  <footer>Private Vault · No file deletion feature</footer>
+  <footer>© <span id="year"></span> Akhil · Built to learn and create.</footer>
 </main>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script src="https://accounts.google.com/gsi/client" async></script>
-
 <script>
 const firebaseConfig = {
   apiKey: "AIzaSyD6DaGR6ZNyK4oiMNohWU4sIUQBqxtwtlg",
@@ -103,290 +163,190 @@ const firebaseConfig = {
 
 const GOOGLE_OAUTH_CLIENT_ID =
   "800739585946-jv5nfribhafi1c49qnajanl2adc4fjna.apps.googleusercontent.com";
-
 const DRIVE_FOLDER_ID = "1PNZspXcpMfj_2pD9tjUqlkfHYbsmm0mB";
 const ALLOWED_EMAIL = "akhilnetha240512@gmail.com";
 
-/*
-  DEMO ONLY:
-  A code embedded in HTML is visible to anyone who inspects the source.
-  This is not secure server-side secret-code verification.
-*/
+/* Prototype only: a code in public HTML is not secure. */
 const SECRET_CODE = "240512";
-
 const DRIVE_SCOPE = "https://www.googleapis.com/auth/drive.readonly";
 const FOLDER_MIME = "application/vnd.google-apps.folder";
 
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
+const $ = id => document.getElementById(id);
 
 let currentUser = null;
 let accessToken = null;
 let tokenClient = null;
-let folderStack = [{id: DRIVE_FOLDER_ID, name: "My Drive folder"}];
+let folderStack = [{id:DRIVE_FOLDER_ID,name:"My Drive folder"}];
 
-const $ = id => document.getElementById(id);
+$("year").textContent = new Date().getFullYear();
 
 function showOnly(id) {
-  ["home", "login", "codePanel", "filesPanel"].forEach(name =>
+  ["login","codePanel","filesPanel"].forEach(name =>
     $(name).classList.toggle("hidden", name !== id)
   );
 }
-
-function message(text) {
-  $("message").textContent = text;
+function msg(text){$("message").textContent=text}
+function allowed(user){
+  return !!user && (user.email||"").toLowerCase()===ALLOWED_EMAIL;
 }
-
-function allowed(user) {
-  return !!user && (user.email || "").toLowerCase() === ALLOWED_EMAIL;
+function goToLogin(){
+  $("login").classList.remove("hidden");
+  $("codePanel").classList.add("hidden");
+  $("filesPanel").classList.add("hidden");
+  $("login").scrollIntoView({behavior:"smooth",block:"start"});
 }
-
-function initDriveClient() {
-  if (!window.google || !google.accounts || !google.accounts.oauth2) {
-    throw new Error("Google sign-in service is still loading. Try again.");
-  }
-
-  tokenClient = google.accounts.oauth2.initTokenClient({
-    client_id: GOOGLE_OAUTH_CLIENT_ID,
-    scope: DRIVE_SCOPE,
-    callback: async response => {
-      if (response.error) {
-        message("Drive access was not granted: " + response.error);
-        return;
-      }
-      accessToken = response.access_token;
-      folderStack = [{id: DRIVE_FOLDER_ID, name: "My Drive folder"}];
+function initDriveClient(){
+  if(!window.google||!google.accounts||!google.accounts.oauth2)
+    throw new Error("Google authorisation is loading. Wait a moment and try again.");
+  tokenClient=google.accounts.oauth2.initTokenClient({
+    client_id:GOOGLE_OAUTH_CLIENT_ID,
+    scope:DRIVE_SCOPE,
+    callback:async response=>{
+      if(response.error){msg("Drive permission was not granted. "+response.error);return}
+      accessToken=response.access_token;
+      folderStack=[{id:DRIVE_FOLDER_ID,name:"My Drive folder"}];
       await loadFolder(DRIVE_FOLDER_ID);
     },
-    error_callback: error => {
-      message("Google authorisation did not open. Try again.");
-    }
+    error_callback:()=>msg("Google authorisation did not open. Try again.")
   });
 }
-
-async function signInWithGoogle() {
-  try {
-    const result = await auth.signInWithPopup(
-      new firebase.auth.GoogleAuthProvider()
-    );
-    if (!allowed(result.user)) {
-      await auth.signOut();
-      showOnly("home");
-      alert("You are not Akhil");
-      return;
+async function signInGoogle(){
+  try{
+    const result=await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    if(!allowed(result.user)){
+      await auth.signOut();alert("You are not Akhil");return;
     }
-    currentUser = result.user;
+    currentUser=result.user;
     showOnly("codePanel");
-  } catch (error) {
-    alert(error.message || "Google sign-in failed.");
+    $("codePanel").scrollIntoView({behavior:"smooth"});
+  }catch(e){
+    alert("Google sign-in failed: "+(e.message||e));
   }
 }
-
-async function signInWithEmail(event) {
+async function signInEmail(event){
   event.preventDefault();
-  try {
-    const result = await auth.signInWithEmailAndPassword(
-      $("email").value.trim(),
-      $("password").value
+  try{
+    const result=await auth.signInWithEmailAndPassword(
+      $("email").value.trim(),$("password").value
     );
-    if (!allowed(result.user)) {
-      await auth.signOut();
-      showOnly("home");
-      alert("You are not Akhil");
-      return;
+    if(!allowed(result.user)){
+      await auth.signOut();alert("You are not Akhil");return;
     }
-    currentUser = result.user;
+    currentUser=result.user;
     showOnly("codePanel");
-  } catch (error) {
-    alert(error.message || "Email sign-in failed.");
+    $("codePanel").scrollIntoView({behavior:"smooth"});
+  }catch(e){
+    alert("Email sign-in failed: "+(e.message||e)+
+      "\nCheck that this account exists in Firebase Authentication and that the password is correct.");
   }
 }
-
-async function rejectCode() {
+async function rejectCode(){
   alert("You are not Akhil");
-  currentUser = null;
-  accessToken = null;
-  $("secretCode").value = "";
+  accessToken=null;currentUser=null;$("secretCode").value="";
   await auth.signOut();
-  showOnly("home");
+  $("filesPanel").classList.add("hidden");
+  $("codePanel").classList.add("hidden");
+  $("login").classList.add("hidden");
+  $("top").scrollIntoView({behavior:"smooth"});
 }
-
-async function unlock(event) {
+async function unlock(event){
   event.preventDefault();
-
-  if (!allowed(currentUser)) {
-    await rejectCode();
-    return;
-  }
-
-  if ($("secretCode").value !== SECRET_CODE) {
-    await rejectCode();
-    return;
-  }
-
-  $("secretCode").value = "";
+  if(!allowed(currentUser)){await rejectCode();return}
+  if($("secretCode").value!==SECRET_CODE){await rejectCode();return}
+  $("secretCode").value="";
   showOnly("filesPanel");
-  $("accountLabel").textContent = "Signed in as " + currentUser.email;
-  message("Requesting permission to view your Google Drive…");
-
-  try {
-    initDriveClient();
-    tokenClient.requestAccessToken({prompt: "consent"});
-  } catch (error) {
-    message(error.message || "Could not start Google Drive access.");
-  }
+  $("filesPanel").scrollIntoView({behavior:"smooth"});
+  $("accountLabel").textContent="Signed in as "+currentUser.email;
+  msg("Requesting Google Drive permission…");
+  try{initDriveClient();tokenClient.requestAccessToken({prompt:"consent"})}
+  catch(e){msg(e.message||"Could not start Drive access.")}
 }
-
-async function driveRequest(url) {
-  const response = await fetch(url, {
-    headers: {Authorization: "Bearer " + accessToken}
-  });
-  if (!response.ok) {
-    const detail = await response.text();
-    throw new Error("Drive request failed (" + response.status + "). " +
-      detail.slice(0, 250));
+async function driveRequest(url){
+  const r=await fetch(url,{headers:{Authorization:"Bearer "+accessToken}});
+  if(!r.ok){
+    const detail=await r.text();
+    throw new Error("Drive error ("+r.status+"): "+detail.slice(0,220));
   }
-  return response.json();
+  return r.json();
 }
-
-async function loadFolder(folderId) {
+async function loadFolder(folderId){
   $("fileList").replaceChildren();
-  message("Loading files…");
+  msg("Loading files…");
+  try{
+    const q=encodeURIComponent("'"+folderId+"' in parents and trashed = false");
+    const fields=encodeURIComponent("files(id,name,mimeType,webViewLink),nextPageToken");
+    let pageToken="",all=[];
+    do{
+      const page=pageToken?"&pageToken="+encodeURIComponent(pageToken):"";
+      const url="https://www.googleapis.com/drive/v3/files?q="+q+
+        "&fields="+fields+"&pageSize=100&orderBy=name"+page;
+      const data=await driveRequest(url);
+      all=all.concat(data.files||[]);
+      pageToken=data.nextPageToken||"";
+    }while(pageToken);
 
-  try {
-    const query = encodeURIComponent(
-      "'" + folderId + "' in parents and trashed = false"
-    );
-    const fields = encodeURIComponent(
-      "files(id,name,mimeType,webViewLink,size,modifiedTime),nextPageToken"
-    );
-
-    let pageToken = "";
-    let allFiles = [];
-
-    do {
-      const page = pageToken
-        ? "&pageToken=" + encodeURIComponent(pageToken)
-        : "";
-
-      const url = "https://www.googleapis.com/drive/v3/files" +
-        "?q=" + query +
-        "&fields=" + fields +
-        "&pageSize=100" +
-        "&orderBy=folder,name" + page;
-
-      const data = await driveRequest(url);
-      allFiles = allFiles.concat(data.files || []);
-      pageToken = data.nextPageToken || "";
-    } while (pageToken);
-
-    allFiles.sort((a, b) => {
-      const af = a.mimeType === FOLDER_MIME ? 0 : 1;
-      const bf = b.mimeType === FOLDER_MIME ? 0 : 1;
-      return af - bf || a.name.localeCompare(b.name);
+    all.sort((a,b)=>{
+      const af=a.mimeType===FOLDER_MIME?0:1;
+      const bf=b.mimeType===FOLDER_MIME?0:1;
+      return af-bf||a.name.localeCompare(b.name);
     });
-
-    $("folderLabel").textContent =
-      "Folder: " + folderStack[folderStack.length - 1].name;
-    $("parentFolder").classList.toggle("hidden", folderStack.length <= 1);
-
-    if (!allFiles.length) {
-      message("This folder is empty, or Drive returned no visible files.");
-      return;
-    }
-
-    message("");
-
-    for (const file of allFiles) {
-      const isFolder = file.mimeType === FOLDER_MIME;
-      const row = document.createElement("div");
-      row.className = "item";
-
-      const icon = document.createElement("span");
-      icon.textContent = isFolder ? "📁" : "📄";
-      icon.style.fontSize = "25px";
-
-      const info = document.createElement("div");
-      info.className = "info";
-
-      const title = document.createElement("strong");
-      title.textContent = file.name;
-      info.appendChild(title);
-
-      const meta = document.createElement("small");
-      meta.textContent = isFolder ? "Folder" : "File · opens in Google Drive";
-      info.appendChild(meta);
-
-      const button = document.createElement("button");
-      button.textContent = isFolder ? "Open" : "View";
-
-      button.addEventListener("click", async () => {
-        if (isFolder) {
-          folderStack.push({id: file.id, name: file.name});
+    $("folderLabel").textContent="Folder: "+folderStack[folderStack.length-1].name;
+    $("parentFolder").classList.toggle("hidden",folderStack.length<=1);
+    if(!all.length){msg("No visible files found. The folder may be empty or inaccessible.");return}
+    msg("");
+    for(const file of all){
+      const isFolder=file.mimeType===FOLDER_MIME;
+      const row=document.createElement("div");row.className="item";
+      const icon=document.createElement("span");icon.textContent=isFolder?"📁":"📄";
+      icon.style.fontSize="25px";
+      const info=document.createElement("div");info.className="info";
+      const name=document.createElement("strong");name.textContent=file.name;
+      const meta=document.createElement("small");meta.textContent=isFolder?"Folder":"Google Drive file";
+      info.append(name,meta);
+      const button=document.createElement("button");button.className="button";
+      button.textContent=isFolder?"Open":"View";
+      button.addEventListener("click",async()=>{
+        if(isFolder){
+          folderStack.push({id:file.id,name:file.name});
           await loadFolder(file.id);
-        } else {
-          const url = file.webViewLink ||
-            "https://drive.google.com/open?id=" +
-            encodeURIComponent(file.id);
-          window.open(url, "_blank", "noopener,noreferrer");
+        }else{
+          const link=file.webViewLink||
+            "https://drive.google.com/open?id="+encodeURIComponent(file.id);
+          window.open(link,"_blank","noopener,noreferrer");
         }
       });
-
-      row.append(icon, info, button);
-      $("fileList").appendChild(row);
+      row.append(icon,info,button);$("fileList").appendChild(row);
     }
-  } catch (error) {
-    message(error.message +
-      "\nCheck Drive API access, OAuth consent, and folder permissions.");
+  }catch(e){
+    msg(e.message+"\nCheck the Drive API, OAuth permission, and folder access.");
   }
 }
 
-$("rocket").addEventListener("click", () => {
-  $("message").textContent = "";
-  showOnly("login");
+$("rocket").addEventListener("click",goToLogin);
+$("googleLogin").addEventListener("click",signInGoogle);
+$("emailForm").addEventListener("submit",signInEmail);
+$("codeForm").addEventListener("submit",unlock);
+$("backHome").addEventListener("click",()=>{
+  auth.signOut();currentUser=null;showOnly("");$("about").scrollIntoView({behavior:"smooth"});
 });
-$("googleLogin").addEventListener("click", signInWithGoogle);
-$("emailForm").addEventListener("submit", signInWithEmail);
-$("codeForm").addEventListener("submit", unlock);
-
-$("backHome").addEventListener("click", async () => {
-  if (auth.currentUser) await auth.signOut();
-  currentUser = null;
-  showOnly("home");
+$("cancelCode").addEventListener("click",async()=>{
+  await auth.signOut();currentUser=null;showOnly("");$("about").scrollIntoView({behavior:"smooth"});
 });
-$("cancelCode").addEventListener("click", async () => {
-  if (auth.currentUser) await auth.signOut();
-  currentUser = null;
-  showOnly("home");
+$("refresh").addEventListener("click",()=>{
+  if(accessToken)loadFolder(folderStack[folderStack.length-1].id);
+  else msg("Sign in and unlock the vault again.");
 });
-$("refresh").addEventListener("click", () => {
-  if (accessToken) {
-    loadFolder(folderStack[folderStack.length - 1].id);
-  } else {
-    message("Please sign in and unlock the vault again.");
-  }
+$("parentFolder").addEventListener("click",()=>{
+  if(folderStack.length>1){folderStack.pop();loadFolder(folderStack[folderStack.length-1].id)}
 });
-$("parentFolder").addEventListener("click", () => {
-  if (folderStack.length > 1) {
-    folderStack.pop();
-    loadFolder(folderStack[folderStack.length - 1].id);
-  }
+$("logout").addEventListener("click",async()=>{
+  accessToken=null;currentUser=null;
+  folderStack=[{id:DRIVE_FOLDER_ID,name:"My Drive folder"}];
+  await auth.signOut();showOnly("");$("about").scrollIntoView({behavior:"smooth"});
 });
-$("logout").addEventListener("click", async () => {
-  accessToken = null;
-  currentUser = null;
-  folderStack = [{id: DRIVE_FOLDER_ID, name: "My Drive folder"}];
-  await auth.signOut();
-  showOnly("home");
-});
-
-auth.onAuthStateChanged(user => {
-  if (user && allowed(user)) {
-    currentUser = user;
-  } else {
-    currentUser = null;
-  }
-});
+auth.onAuthStateChanged(user=>{currentUser=allowed(user)?user:null});
 </script>
 </body>
 </html>
